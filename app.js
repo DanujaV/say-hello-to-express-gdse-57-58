@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 
 app.get('/customer', (req, res) => {
     console.log('customer get come');
-    res.send('<h1>Customer get req came</h1>')
+    res.send('<h1>Customer get request came</h1>')
 })
 
 app.listen(port, () => {
