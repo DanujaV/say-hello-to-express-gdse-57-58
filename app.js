@@ -7,9 +7,17 @@ app.get('/', (req, res) => {
     res.send('get req came for / route')
 })
 
+app.post('/', (req, res) => {
+    res.send('<h2>post request came for / route</h2>')
+})
+
 app.get('/customer', (req, res) => {
     console.log('customer get come');
     res.send('<h1>Customer get request came</h1>')
+})
+
+app.post('/customer', (req, res) => {
+    res.send('customer post req came')
 })
 
 app.listen(port, () => {
