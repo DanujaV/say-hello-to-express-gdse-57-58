@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 4000
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
     console.log('get request comming!');
     res.send('get req came for / route')
@@ -17,7 +19,12 @@ app.get('/customer', (req, res) => {
 })
 
 app.post('/customer', (req, res) => {
+    console.log(req.body.id);
     res.send('customer post req came')
+})
+
+app.delete('/customer', (req, res) => {
+    res.send('delete req came for customer')
 })
 
 app.listen(port, () => {
