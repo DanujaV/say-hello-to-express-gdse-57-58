@@ -13,7 +13,8 @@ connection.connect(function (err) {
         var userTableQuery = "CREATE TABLE IF NOT EXISTS users (id VARCHAR(255) PRIMARY KEY, name VARCHAR(255), username VARCHAR(255))"
         connection.query(userTableQuery, function (err, result) {
             if (err) throw err;
-            // console.log(result);
+            // console.log(result); // 
+            // console.log("table created");
             if (result.warningCount === 0) {
                 console.log("User table created!");
             }
@@ -22,7 +23,12 @@ connection.connect(function (err) {
 })
 
 router.get('/', (req, res) => {
-    res.send('user get')
+    var query = "SELECT * FROM users";
+    connection.query(query, (err, rows) => {
+        if(err) throw err
+
+        res.send(rows)
+    })
 })
 
 router.post('/', (req, res) => {
