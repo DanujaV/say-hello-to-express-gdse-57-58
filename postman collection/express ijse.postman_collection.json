@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "5e5ba5c1-e016-4df7-8adc-e3579571d615",
+		"name": "express ijse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13459672"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "get all customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "httpL//localhost:4000/customer",
+							"host": [
+								"httpL"
+							],
+							"path": [
+								"",
+								"localhost:4000",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"C001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "httpL//localhost:4000/customer",
+							"host": [
+								"httpL"
+							],
+							"path": [
+								"",
+								"localhost:4000",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iitem",
+			"item": [
+				{
+					"name": "get all item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": []
+		},
+		{
+			"name": "order detail",
+			"item": []
+		}
+	]
+}
