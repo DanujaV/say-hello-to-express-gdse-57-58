@@ -26,8 +26,20 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body);
-    res.send('user post method')
+    const id = req.body.id
+    const name = req.body.name
+    const username = req.body.username
+    
+    var query = "INSERT INTO users (id, name, username) VALUES (?, ?, ?)";
+
+    connection.query(query, [id, name, username], (err) => {
+        if(err) {
+            res.send({'message' : 'duplicate entry'})
+        } else {
+            res.send({'message' : 'user created!' })
+        }
+    })
+
 })
 
 router.put('/', (req, res) => {
