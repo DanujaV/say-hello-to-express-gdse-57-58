@@ -53,4 +53,20 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+router.put('/:id', async (req, res) => {
+    try {
+        const item = await Item.findById(req.params.id)
+        item.code = req.body.code
+        item.description = req.body.description
+        item.price = req.body.price
+        item.qty = req.body.qty
+
+        const response = await item.save()
+        res.json(response)
+
+    } catch (err) {
+        res.send('Err: ' + err)
+    }
+})
+
 module.exports = router
