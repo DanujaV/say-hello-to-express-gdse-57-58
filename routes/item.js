@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async(req, res) => {
-    try{
+router.get('/:id', async (req, res) => {
+    try {
         const item = await Item.findById(req.params.id)
         res.json(item)
-    }catch(err) {
+    } catch (err) {
         res.send('Err: ' + err)
     }
 })
@@ -42,8 +42,15 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.delete('/', (req, res) => {
-    res.send(req.query.id)
+router.delete('/:id', async (req, res) => {
+    try {
+        const item = await Item.findById(req.params.id)
+        const response = await item.remove()
+
+        res.json(response)
+    } catch (err) {
+        res.send('Err: ' + err)
+    }
 })
 
 module.exports = router
