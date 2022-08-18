@@ -24,7 +24,7 @@ router.post('/', async(req, res) => {
     })
 
     try {
-        const response = item.save()
+        const response = await item.save()
         res.send(response)
     } catch(err) {
         res.send('Err: ' + err)
