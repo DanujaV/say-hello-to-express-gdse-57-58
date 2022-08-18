@@ -22,6 +22,7 @@ app.use(express.json())
 // app.use('/customer', customer)
 // app.use('/item',  item)
 app.use('/users', user)
+app.use('/items', item)
 
 
 // app.get('/', (req, res) => {
