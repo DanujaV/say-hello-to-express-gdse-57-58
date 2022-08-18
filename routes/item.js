@@ -9,13 +9,14 @@ app.use(express.json())
 router.get('/', async (req, res) => {
     try {
         const items = await Item.find()
-        res.send(items)
+        // res.send(items)
+        res.json(items)
     } catch (err) {
         res.send('Err: ' + err)
     }
 })
 
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
     const item = new Item({
         code: req.body.code,
         description: req.body.description,
@@ -25,8 +26,9 @@ router.post('/', async(req, res) => {
 
     try {
         const response = await item.save()
-        res.send(response)
-    } catch(err) {
+        // res.send(response)
+        res.json(response)
+    } catch (err) {
         res.send('Err: ' + err)
     }
 })
