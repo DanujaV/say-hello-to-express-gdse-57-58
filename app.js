@@ -8,10 +8,9 @@ const item = require('./routes/item')
 const app = express()
 const port = 4000
 
-
 const url = 'mongodb://localhost/express'
 
-mongoose.connect(url, { useNewUrlParse: true })
+mongoose.connect(url, { useNewUrlParser: true })
 const con = mongoose.connection
 
 con.on("open", () => {
