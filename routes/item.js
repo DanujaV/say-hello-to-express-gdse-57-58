@@ -16,6 +16,15 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async(req, res) => {
+    try{
+        const item = await Item.findById(req.params.id)
+        res.json(item)
+    }catch(err) {
+        res.send('Err: ' + err)
+    }
+})
+
 router.post('/', async (req, res) => {
     const item = new Item({
         code: req.body.code,
